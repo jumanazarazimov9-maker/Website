@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erkin Norsafar - Yozuvchi va Dramaturg</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Georgia&family=Arial&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: #0a0a0f;
+            color: #00ffff;
+            line-height: 1.6;
+        }
+
+        /* NAVIGATSIYA */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.95);
+            border-bottom: 1px solid #00ffff;
+        }
+
+        .logo {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #00ffff;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: #00ffff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+        }
+
+        .nav-link:hover {
+            color: #ff00ff;
+        }
+
+        /* ASOSIY QISMI */
+        section {
+            padding: 6rem 5%;
+            min-height: 100vh;
+        }
+
+        .hero {
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            color: #00ffff;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #ff00ff;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            text-decoration: none;
+            border: 2px solid #00ffff;
+            color: #00ffff;
+            transition: all 0.3s;
+        }
+
+        .btn:hover {
+            background: #00ffff;
+            color: #0a0a0f;
+        }
+
+        /* BO'LIMLAR */
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #00ffff;
+        }
+
+        .card {
+            background: rgba(0, 255, 255, 0.05);
+            border: 1px solid #00ffff;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 5px;
+        }
+
+        .card-title {
+            font-size: 1.3rem;
+            color: #00ffff;
+            margin-bottom: 1rem;
+        }
+
+        .card-text {
+            color: #cccccc;
+            line-height: 1.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATSIYA -->
+    <nav class="navbar">
+        <div class="logo">Erkin Norsafar</div>
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">BOSH SAHIFA</a></li>
+            <li><a href="#stories" class="nav-link">HIKOYALAR</a></li>
+            <li><a href="#plays" class="nav-link">SPEKTAKLLAR</a></li>
+            <li><a href="#interviews" class="nav-link">INTERVYULAR</a></li>
+            <li><a href="#contact" class="nav-link">ALOQA</a></li>
+        </ul>
+    </nav>
+
+    <!-- ASOSIY QISMI -->
+    <section class="hero" id="home">
+        <h1 class="hero-title">ERKIN NORSAFAR</h1>
+        <p class="hero-subtitle">Yozuvchi va Dramaturg</p>
+        <div class="cta-buttons">
+            <a href="#stories" class="btn">HIKOYALAR</a>
+            <a href="#contact" class="btn">BOG'LANISH</a>
+        </div>
+    </section>
+
+    <!-- HIKOYALAR -->
+    <section id="stories">
+        <h2 class="section-title">HIKOYALAR</h2>
+        <div class="card">
+            <h3 class="card-title">Birinchi Hikoya</h3>
+            <p class="card-text">Bu yerda sizning hikoyangizning to'liq matni joylashadi.</p>
+        </div>
+        <div class="card">
+            <h3 class="card-title">Ikkinchi Hikoya</h3>
+            <p class="card-text">Ikkinchi hikoyangizning matni bu yerda joylashadi.</p>
+        </div>
+    </section>
+
+    <!-- SPEKTAKLLAR -->
+    <section id="plays">
+        <h2 class="section-title">SPEKTAKLLAR</h2>
+        <div class="card">
+            <h3 class="card-title">Spektakl Nomi</h3>
+            <p class="card-text">Spektakl haqida qisqacha ma'lumot.</p>
+        </div>
+    </section>
+
+    <!-- INTERVYULAR -->
+    <section id="interviews">
+        <h2 class="section-title">INTERVYULAR</h2>
+        <div class="card">
+            <h3 class="card-title">Intervyu Sarlavhasi</h3>
+            <p class="card-text">Intervyu haqida qisqacha ma'lumot.</p>
+        </div>
+    </section>
+
+    <!-- ALOQA -->
+    <section id="contact">
+        <h2 class="section-title">ALOQA</h2>
+        <div class="card">
+            <h3 class="card-title">Bog'lanish</h3>
+            <p class="card-text">Email: mahmadalie49@gmail.com<br>Telegram: @erkin_norsafar</p>
+        </div>
+    </section>
+</body>
+</html>
