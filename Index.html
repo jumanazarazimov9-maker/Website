@@ -988,3 +988,254 @@
     </script>
 </body>
 </html>
+<!-- ASARLAR BO'LIMI -->
+<section class="books-section">
+    <h2 class="books-title">📚 Mening Asarlarim</h2>
+    
+    <!-- KUZGI SHAMOLLAR -->
+    <div class="book-card">
+        <div class="book-cover">
+            <div class="cover-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4);">
+                <i class="fas fa-wind"></i>
+            </div>
+        </div>
+        <div class="book-info">
+            <h3>Kuzgi Shamollar</h3>
+            <p class="book-meta">2023 yil • Hikoyalar to'plami • 25 ta hikoya</p>
+            <p class="book-description">
+                Zamonaviy hayotning turli jihatlarini aks ettiruvchi 25 ta qisqa hikoya. 
+                Har bir hikoya o'quvchini o'ziga tortadigan va hayotiy saboq beradigan mavzularni qamrab oladi.
+            </p>
+            <div class="book-actions">
+                <button class="book-btn btn-primary" onclick="showBookContent('kuzgi-shamollar')">
+                    <i class="fas fa-book-open"></i> Onlayn O'qish
+                </button>
+                <button class="book-btn btn-secondary" onclick="showChapters('kuzgi-shamollar')">
+                    <i class="fas fa-list"></i> Boblar Ro'yxati
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- O'TKIR HAYOT -->
+    <div class="book-card">
+        <div class="book-cover">
+            <div class="cover-placeholder" style="background: linear-gradient(135deg, #A8E6CF, #FFD3B6);">
+                <i class="fas fa-theater-masks"></i>
+            </div>
+        </div>
+        <div class="book-info">
+            <h3>O'tkir Hayot</h3>
+            <p class="book-meta">2022 yil • Drama • 3 pardali spektakl</p>
+            <p class="book-description">
+                Sahnalashtirilgan dramatik asar. Zamonaviy jamiyatdagi insoniy munosabatlar, 
+                sevgi va sadoqat mavzularini chuqur o'rganadi. Tomoshabinlar tomonidan yuqori baholangan.
+            </p>
+            <div class="book-actions">
+                <button class="book-btn btn-primary" onclick="showBookContent('otkir-hayot')">
+                    <i class="fas fa-book-open"></i> Onlayn O'qish
+                </button>
+                <button class="book-btn btn-secondary" onclick="showChapters('otkir-hayot')">
+                    <i class="fas fa-list"></i> Pardalar Ro'yxati
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TUNGI FARYOD -->
+    <div class="book-card">
+        <div class="book-cover">
+            <div class="cover-placeholder" style="background: linear-gradient(135deg, #FF9A8B, #FF6B9D);">
+                <i class="fas fa-moon"></i>
+            </div>
+        </div>
+        <div class="book-info">
+            <h3>Tungi Faryod</h3>
+            <p class="book-meta">2024 yil • Roman • Yangi asar</p>
+            <p class="book-description">
+                Yangi badiiy roman. Zamonaviy insonning ichki dunyosi, orzulari va kurashlari haqida 
+                chuqur psixologik hikoya. Tez orada nashr etiladi.
+            </p>
+            <div class="book-actions">
+                <button class="book-btn btn-primary" onclick="showBookContent('tungi-faryod')">
+                    <i class="fas fa-book-open"></i> Onlayn O'qish
+                </button>
+                <button class="book-btn btn-secondary" onclick="notifyBookRelease('tungi-faryod')">
+                    <i class="fas fa-bell"></i> Chiqishidan Xabar Berish
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+// ASARLAR FUNKSIYALARI
+function showBookContent(bookId) {
+    const bookContents = {
+        'kuzgi-shamollar': `
+            <h3>Kuzgi Shamollar - 1-bob</h3>
+            <p>Kuzning dastlabki kunlari edi. Havo salqin, shamol esa daraxtlarning barglarini 
+            sekin silkitayotgandi. Men uydan chiqib, ko'chaga qadam qo'yganimda, birinchi qor 
+            yogayotganini ko'rdim...</p>
+            
+            <h4>2-bob</h4>
+            <p>Ertalab uyg'onganimda, hamma joy qor bilan qoplangan edi. Oynadan tashqariga 
+            qaradim - oq dunyo. Bu manzara menga bolalik xotiralarimni eslatdi...</p>
+        `,
+        
+        'otkir-hayot': `
+            <h3>O'tkir Hayot - 1-parda</h3>
+            <p><strong>Sahna:</strong> Kichkina kvartira. Kelet soat 8. Mehmonxona.</p>
+            <p><strong>Qahramonlar:</strong> ALI (30 yosh), ZEBU (28 yosh)</p>
+            <p><strong>ALI:</strong> (Stolga qarab) Bu nima? Yana kech qoldingmi?</p>
+            <p><strong>ZEBU:</strong> Ishda qoldim. Bilasanki, yangi loyiha...</p>
+            
+            <h4>2-parda</h4>
+            <p><strong>Sahna:</strong> Xuddi shu kvartira. Bir hafta o'tgach.</p>
+        `,
+        
+        'tungi-faryod': `
+            <h3>Tungi Faryod - Kirish</h3>
+            <p>Bu kitob hali nashr etilmagan. Tez orada butun matn bilan tanishingiz mumkin bo'ladi.</p>
+            <p>Asar zamonaviy yoshlarning orzulari, kurashlari va yutuqlari haqida...</p>
+        `
+    };
+    
+    // Modal oynani ochish
+    openModal(bookContents[bookId] || 'Asar matni topilmadi.');
+}
+
+function showChapters(bookId) {
+    const chapters = {
+        'kuzgi-shamollar': [
+            '1. Birinchi qor',
+            '2. Eski do\'st', 
+            '3. Telefon qo'ng'irog\'i',
+            '4. Kafelda',
+            '5. Tun qo\'shig\'i',
+            '6. Sayohat',
+            '7. Uchrashuv',
+            '8. Vafo',
+            '9. Orzular shahri',
+            '10. Yakun'
+        ],
+        
+        'otkir-hayot': [
+            '1-parda: Tanishuv',
+            '2-parda: Mo\'jiza', 
+            '3-parda: Tanlov',
+            '4-parda: Qaror',
+            '5-parda: Yakun'
+        ]
+    };
+    
+    const chapterList = chapters[bookId] ? 
+        chapters[bookId].map(chapter => `<li>${chapter}</li>`).join('') : 
+        '<li>Boblar ro\'yxati tayyorlanmoqda</li>';
+    
+    openModal(`<h3>Boblar Ro'yxati</h3><ul>${chapterList}</ul>`);
+}
+
+function notifyBookRelease(bookId) {
+    const email = prompt('Kitob chiqqanda xabar olish uchun email manzilingizni kiriting:');
+    if (email) {
+        alert(`Rahmat! "${bookId}" kitobi chiqqanda ${email} manziliga xabar yuboramiz.`);
+    }
+}
+
+// MODAL OYNA FUNKSIYASI
+function openModal(content) {
+    // Eski modalni o'chirish
+    const oldModal = document.getElementById('bookModal');
+    if (oldModal) oldModal.remove();
+    
+    // Yangi modal yaratish
+    const modal = document.createElement('div');
+    modal.id = 'bookModal';
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10000;
+        padding: 20px;
+    `;
+    
+    modal.innerHTML = `
+        <div style="
+            background: white; 
+            padding: 30px; 
+            border-radius: 15px; 
+            max-width: 600px; 
+            max-height: 80vh; 
+            overflow-y: auto;
+            position: relative;
+        ">
+            <button onclick="closeModal()" style="
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                background: none;
+                border: none;
+                font-size: 1.5em;
+                cursor: pointer;
+            ">✕</button>
+            <div>${content}</div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+}
+
+function closeModal() {
+    const modal = document.getElementById('bookModal');
+    if (modal) modal.remove();
+} /* MODAL STILLARI */
+#bookModal {
+    font-family: 'Inter', sans-serif;
+}
+
+#bookModal h3 {
+    color: #8A2BE2;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #8A2BE2;
+    padding-bottom: 10px;
+}
+
+#bookModal h4 {
+    color: #666;
+    margin: 20px 0 10px 0;
+}
+
+#bookModal p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#bookModal ul {
+    list-style: none;
+    padding: 0;
+}
+
+#bookModal li {
+    padding: 10px 15px;
+    margin: 5px 0;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #8A2BE2;
+}
+
+/* ASARLAR STILLARI YANGILASH */
+.book-description {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.cover-placeholder i {
+    opacity: 0.9;
+}
