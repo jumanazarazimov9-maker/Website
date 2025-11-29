@@ -1,22 +1,20 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erkin Norsafar - Professional Adib va Dramaturg</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --gold: #FFD700;
             --purple: #8A2BE2;
-            --deep-blue: #0F0F2D;
-            --neon-pink: #FF10F0;
-            --neon-cyan: #00FFFF;
+            --gold: #FFD700;
             --white: #FFFFFF;
             --dark: #1A1A2E;
             --gray: #f8f9fa;
             --text-dark: #333;
+            --shadow: 0 5px 20px rgba(0,0,0,0.1);
         }
 
         * {
@@ -29,16 +27,15 @@
             font-family: 'Inter', sans-serif;
             background: var(--white);
             color: var(--text-dark);
-            overflow-x: hidden;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* MODERN NAVBAR */
         .modern-nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.1);
             z-index: 1000;
@@ -56,16 +53,20 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
             font-size: 1.8em;
-            color: var(--purple);
             font-weight: bold;
+            color: var(--purple);
             text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: #7b1fa2;
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             align-items: center;
         }
 
@@ -82,127 +83,55 @@
         .nav-links a:hover {
             background: var(--purple);
             color: var(--white);
+            transform: translateY(-2px);
         }
 
-        .nav-actions {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
-        /* SEARCH BAR */
-        .search-container {
-            position: relative;
-        }
-
-        .search-input {
-            padding: 8px 15px 8px 35px;
-            border: 1px solid #ddd;
-            border-radius: 20px;
-            font-size: 0.9em;
-            width: 200px;
-            transition: all 0.3s ease;
-        }
-
-        .search-input:focus {
-            outline: none;
-            border-color: var(--purple);
-            width: 250px;
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #666;
-        }
-
-        /* USER MENU */
-        .user-menu {
-            position: relative;
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--purple);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            padding: 10px 0;
-            min-width: 200px;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-        }
-
-        .user-menu:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 10px 20px;
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: background 0.3s ease;
-        }
-
-        .dropdown-menu a:hover {
-            background: var(--gray);
-        }
-
-        /* HERO SECTION */
         .hero {
-            min-height: 80vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 100px 20px 50px;
+            padding: 120px 20px 60px;
+            text-align: center;
+            position: relative;
         }
 
         .hero-content {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
-            text-align: center;
+            position: relative;
+            z-index: 2;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
             font-size: 3.5em;
             margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .hero-subtitle {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            opacity: 0.9;
+            font-size: 1.4em;
+            margin-bottom: 25px;
+            opacity: 0.95;
+            font-weight: 300;
         }
 
-        /* BUTTONS */
+        .hero-description {
+            font-size: 1.1em;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         .btn {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            padding: 12px 30px;
+            padding: 14px 32px;
             border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
@@ -210,16 +139,18 @@
             border: none;
             cursor: pointer;
             font-size: 1em;
+            margin: 5px;
         }
 
         .btn-primary {
             background: var(--purple);
             color: white;
+            box-shadow: 0 4px 15px rgba(138, 43, 226, 0.3);
         }
 
         .btn-primary:hover {
             background: #7b1fa2;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
             box-shadow: 0 8px 25px rgba(138, 43, 226, 0.4);
         }
 
@@ -232,121 +163,187 @@
         .btn-secondary:hover {
             background: white;
             color: var(--purple);
+            transform: translateY(-2px);
         }
 
-        /* FEATURES GRID */
-        .features {
-            padding: 80px 20px;
-            background: var(--gray);
+        .books-section {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 60px 20px;
         }
 
-        .section-title {
+        .books-title {
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
+            font-size: 2.8em;
+            margin-bottom: 60px;
             color: var(--text-dark);
+            position: relative;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .books-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--purple);
+            margin: 20px auto 0;
+            border-radius: 2px;
         }
 
-        .feature-card {
-            background: white;
-            padding: 40px 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .feature-icon {
-            font-size: 3em;
-            color: var(--purple);
-            margin-bottom: 20px;
-        }
-
-        /* BREADCRUMB */
-        .breadcrumb {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-        }
-
-        .breadcrumb a {
-            color: var(--purple);
-            text-decoration: none;
-        }
-
-        /* PAGINATION */
-        .pagination {
+        .book-card {
             display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 50px 0;
-        }
-
-        .page-link {
-            padding: 10px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            text-decoration: none;
-            color: var(--text-dark);
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow);
+            gap: 35px;
+            border-left: 6px solid var(--purple);
             transition: all 0.3s ease;
         }
 
-        .page-link:hover, .page-link.active {
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+
+        .book-cover {
+            flex: 0 0 160px;
+        }
+
+        .cover-placeholder {
+            width: 160px;
+            height: 220px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.2em;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .book-info {
+            flex: 1;
+        }
+
+        .book-title {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+            font-weight: 700;
+        }
+
+        .book-meta {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .book-meta i {
+            color: var(--purple);
+        }
+
+        .book-description {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 1.05em;
+        }
+
+        .book-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        .book-btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .book-btn-primary {
             background: var(--purple);
             color: white;
-            border-color: var(--purple);
+            box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
         }
 
-        /* SIDEBAR LAYOUT */
-        .sidebar-layout {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            gap: 40px;
+        .book-btn-primary:hover {
+            background: #7b1fa2;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.4);
+        }
+
+        .book-btn-secondary {
+            background: transparent;
+            border: 2px solid var(--purple);
+            color: var(--purple);
+        }
+
+        .book-btn-secondary:hover {
+            background: var(--purple);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .modern-footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 70px 20px 30px;
+            margin-top: 100px;
+        }
+
+        .footer-content {
             max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
+            margin: 0 auto;
+            text-align: center;
         }
 
-        .sidebar {
-            background: var(--gray);
-            padding: 30px;
-            border-radius: 10px;
+        .footer-logo {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            color: var(--gold);
+            font-weight: bold;
         }
 
-        .sidebar-menu {
-            list-style: none;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
         }
 
-        .sidebar-menu li {
-            margin-bottom: 10px;
+        .social-link {
+            color: white;
+            font-size: 1.4em;
+            transition: all 0.3s ease;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
         }
 
-        .sidebar-menu a {
-            color: var(--text-dark);
-            text-decoration: none;
-            padding: 10px;
-            display: block;
-            border-radius: 5px;
-            transition: background 0.3s ease;
+        .social-link:hover {
+            color: var(--gold);
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
         }
 
-        .sidebar-menu a:hover {
-            background: white;
-        }
-
-        /* MODAL */
         .modal {
             display: none;
             position: fixed;
@@ -354,143 +351,124 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
             align-items: center;
             justify-content: center;
+            padding: 20px;
         }
 
         .modal-content {
             background: white;
-            padding: 40px;
-            border-radius: 15px;
-            max-width: 500px;
-            width: 90%;
+            padding: 50px 40px;
+            border-radius: 20px;
+            max-width: 700px;
+            max-height: 85vh;
+            overflow-y: auto;
             position: relative;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.3);
         }
 
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             background: none;
             border: none;
-            font-size: 1.5em;
+            font-size: 1.8em;
             cursor: pointer;
             color: #666;
-        }
-
-        /* FOOTER */
-        .modern-footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 60px 20px 30px;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 20px;
-            color: var(--gold);
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links a {
-            color: #ccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--gold);
-        }
-
-        .social-links {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
             display: flex;
-            gap: 15px;
-            margin-top: 20px;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
 
-        .social-link {
-            color: white;
+        .close-modal:hover {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .modal-body {
+            line-height: 1.8;
+        }
+
+        .modal-body h3 {
+            color: var(--purple);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 3px solid var(--purple);
+            padding-bottom: 10px;
+        }
+
+        .modal-body h4 {
+            color: #666;
+            margin: 25px 0 15px 0;
             font-size: 1.3em;
-            transition: color 0.3s ease;
         }
 
-        .social-link:hover {
-            color: var(--gold);
+        .modal-body p {
+            margin-bottom: 15px;
+            color: #333;
         }
 
-        /* RESPONSIVE */
+        .modal-body ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+
+        .modal-body li {
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: var(--gray);
+            border-radius: 8px;
+            border-left: 4px solid var(--purple);
+        }
+
         @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5em; }
+            .book-card { 
+                flex-direction: column; 
+                text-align: center;
+                padding: 30px 25px;
+            }
+            .book-cover {
+                margin: 0 auto 20px;
+            }
+            .book-meta {
+                justify-content: center;
+            }
             .nav-links { display: none; }
-            .mobile-menu-btn { display: block; }
-            .sidebar-layout { grid-template-columns: 1fr; }
-            .hero h1 { font-size: 2.2em; }
-            .search-input { width: 150px; }
+            .books-title { font-size: 2.2em; }
         }
     </style>
 </head>
 <body>
-    <!-- MODERN NAVBAR -->
     <nav class="modern-nav">
         <div class="nav-container">
             <a href="#" class="logo">Erkin Norsafar</a>
-            
             <div class="nav-links">
-                <a href="#home"><i class="fas fa-home"></i> Bosh Sahifa</a>
-                <a href="#books"><i class="fas fa-book"></i> Asarlar</a>
-                <a href="#plays"><i class="fas fa-theater-masks"></i> Spektakllar</a>
-                <a href="#blog"><i class="fas fa-blog"></i> Blog</a>
-                <a href="#about"><i class="fas fa-user"></i> Haqimda</a>
-                <a href="#contact"><i class="fas fa-envelope"></i> Aloqa</a>
-            </div>
-
-            <div class="nav-actions">
-                <div class="search-container">
-                    <i class="fas fa-search search-icon"></i>
-                    <input type="text" class="search-input" placeholder="Qidirish...">
-                </div>
-                
-                <div class="user-menu">
-                    <div class="user-avatar">EN</div>
-                    <div class="dropdown-menu">
-                        <a href="#profile"><i class="fas fa-user"></i> Profil</a>
-                        <a href="#settings"><i class="fas fa-cog"></i> Sozlamalar</a>
-                        <a href="#library"><i class="fas fa-bookmark"></i> Kutubxona</a>
-                        <a href="#logout"><i class="fas fa-sign-out-alt"></i> Chiqish</a>
-                    </div>
-                </div>
+                <a href="#home">Bosh Sahifa</a>
+                <a href="#books">Asarlar</a>
+                <a href="#contact">Aloqa</a>
             </div>
         </div>
     </nav>
 
-    <!-- BREADCRUMB -->
-    <div class="breadcrumb">
-        <a href="#">Bosh Sahifa</a> / <a href="#">Asarlar</a> / <span>Kuzgi Shamollar</span>
-    </div>
-
-    <!-- HERO SECTION -->
     <section class="hero" id="home">
         <div class="hero-content">
             <h1>Erkin Norsafar</h1>
             <div class="hero-subtitle">Professional Adib va Dramaturg</div>
-            <p>50+ badiiy asar va 25+ sahnalashtirilgan spektakllar muallifi</p>
-            <div style="margin-top: 30px;">
-                <a href="#works" class="btn btn-primary">
+            <p class="hero-description">
+                50+ badiiy asar va 25+ sahnalashtirilgan spektakllar muallifi. 
+                Zamonaviy o'zbek adabiyotining yetuk vakili.
+            </p>
+            <div class="hero-buttons">
+                <a href="#books" class="btn btn-primary">
                     <i class="fas fa-book-open"></i> Asarlarni Ko'rish
                 </a>
                 <a href="#contact" class="btn btn-secondary">
@@ -500,810 +478,126 @@
         </div>
     </section>
 
-    <!-- FEATURES -->
-    <section class="features">
-        <h2 class="section-title">Xizmatlar va Imkoniyatlar</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-book"></i>
+    <section class="books-section" id="books">
+        <h2 class="books-title">📚 Mening Asarlarim</h2>
+        
+        <div class="book-card">
+            <div class="book-cover">
+                <div class="cover-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4);">
+                    <i class="fas fa-wind"></i>
                 </div>
-                <h3>Elektron Kitoblar</h3>
-                <p>Barcha asarlarning elektron versiyalari PDF va EPUB formatlarida</p>
-                <a href="#" class="btn btn-primary" style="margin-top: 15px;">Ko'rish</a>
             </div>
-
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-video"></i>
+            <div class="book-info">
+                <h3 class="book-title">Kuzgi Shamollar</h3>
+                <div class="book-meta">
+                    <span><i class="fas fa-calendar"></i> 2023 yil</span>
+                    <span><i class="fas fa-book"></i> Hikoyalar to'plami</span>
                 </div>
-                <h3>Video Materiallar</h3>
-                <p>Spektakl videolari, intervyular va ijodiy kechalarning yozuvlari</p>
-                <a href="#" class="btn btn-primary" style="margin-top: 15px;">Tomosha Qilish</a>
+                <p class="book-description">
+                    Zamonaviy hayotning turli jihatlarini aks ettiruvchi 25 ta qisqa hikoya. 
+                    Har bir hikoya o'quvchini o'ziga tortadigan va hayotiy saboq beradigan 
+                    mavzularni qamrab oladi.
+                </p>
+                <div class="book-actions">
+                    <button class="book-btn book-btn-primary" onclick="showBookContent('kuzgi-shamollar')">
+                        <i class="fas fa-book-open"></i> Onlayn O'qish
+                    </button>
+                    <button class="book-btn book-btn-secondary" onclick="showChapters('kuzgi-shamollar')">
+                        <i class="fas fa-list"></i> Boblar Ro'yxati
+                    </button>
+                </div>
             </div>
+        </div>
 
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-users"></i>
+        <div class="book-card">
+            <div class="book-cover">
+                <div class="cover-placeholder" style="background: linear-gradient(135deg, #A8E6CF, #FFD3B6);">
+                    <i class="fas fa-theater-masks"></i>
                 </div>
-                <h3>O'quvchilar Hamjamiyati</h3>
-                <p>Boshqa o'quvchilar bilan muloqot va fikr almashish platformasi</p>
-                <a href="#" class="btn btn-primary" style="margin-top: 15px;">Qo'shilish</a>
+            </div>
+            <div class="book-info">
+                <h3 class="book-title">O'tkir Hayot</h3>
+                <div class="book-meta">
+                    <span><i class="fas fa-calendar"></i> 2022 yil</span>
+                    <span><i class="fas fa-mask"></i> Drama</span>
+                </div>
+                <p class="book-description">
+                    Sahnalashtirilgan dramatik asar. Zamonaviy jamiyatdagi insoniy munosabatlar, 
+                    sevgi va sadoqat mavzularini chuqur o'rganadi.
+                </p>
+                <div class="book-actions">
+                    <button class="book-btn book-btn-primary" onclick="showBookContent('otkir-hayot')">
+                        <i class="fas fa-book-open"></i> Onlayn O'qish
+                    </button>
+                    <button class="book-btn book-btn-secondary" onclick="showChapters('otkir-hayot')">
+                        <i class="fas fa-list"></i> Pardalar Ro'yxati
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="book-card">
+            <div class="book-cover">
+                <div class="cover-placeholder" style="background: linear-gradient(135deg, #FF9A8B, #FF6B9D);">
+                    <i class="fas fa-moon"></i>
+                </div>
+            </div>
+            <div class="book-info">
+                <h3 class="book-title">Tungi Faryod</h3>
+                <div class="book-meta">
+                    <span><i class="fas fa-calendar"></i> 2024 yil</span>
+                    <span><i class="fas fa-feather"></i> Roman</span>
+                </div>
+                <p class="book-description">
+                    Yangi badiiy roman. Zamonaviy insonning ichki dunyosi, orzulari va kurashlari 
+                    haqida chuqur psixologik hikoya. Tez orada nashr etiladi.
+                </p>
+                <div class="book-actions">
+                    <button class="book-btn book-btn-primary" onclick="showBookContent('tungi-faryod')">
+                        <i class="fas fa-book-open"></i> Onlayn O'qish
+                    </button>
+                    <button class="book-btn book-btn-secondary" onclick="notifyBookRelease('tungi-faryod')">
+                        <i class="fas fa-bell"></i> Chiqishidan Xabar Berish
+                    </button>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- SIDEBAR LAYOUT EXAMPLE -->
-    <div class="sidebar-layout">
-        <aside class="sidebar">
-            <h3>Kategoriyalar</h3>
-            <ul class="sidebar-menu">
-                <li><a href="#"><i class="fas fa-book"></i> Badiiy Adabiyot</a></li>
-                <li><a href="#"><i class="fas fa-theater-masks"></i> Dramaturgiya</a></li>
-                <li><a href="#"><i class="fas fa-pen"></i> Maqolalar</a></li>
-                <li><a href="#"><i class="fas fa-video"></i> Video Materiallar</a></li>
-                <li><a href="#"><i class="fas fa-microphone"></i> Intervyular</a></li>
-            </ul>
-
-            <h3 style="margin-top: 30px;">Oxirgi Yangiliklar</h3>
-            <ul class="sidebar-menu">
-                <li><a href="#">Yangi kitob chiqdi</a></li>
-                <li><a href="#">Spektakl jadvali</a></li>
-                <li><a href="#">Imzo kunlari</a></li>
-            </ul>
-        </aside>
-
-        <main>
-            <h2>Asarlar Ro'yxati</h2>
-            <!-- Content would go here -->
-        </main>
-    </div>
-
-    <!-- PAGINATION -->
-    <div class="pagination">
-        <a href="#" class="page-link"><i class="fas fa-chevron-left"></i></a>
-        <a href="#" class="page-link active">1</a>
-        <a href="#" class="page-link">2</a>
-        <a href="#" class="page-link">3</a>
-        <a href="#" class="page-link">4</a>
-        <a href="#" class="page-link"><i class="fas fa-chevron-right"></i></a>
-    </div>
-
-    <!-- MODAL EXAMPLE -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <h2>Hisobingizga Kirish</h2>
-            <form style="margin-top: 20px;">
-                <input type="email" placeholder="Email" style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px;">
-                <input type="password" placeholder="Parol" style="width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px;">
-                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 15px;">Kirish</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="modern-footer">
-        <div class="footer-grid">
-            <div class="footer-section">
-                <h3>Erkin Norsafar</h3>
-                <p>Professional adib va dramaturg. Zamonaviy o'zbek adabiyotining yetuk namoyandasi.</p>
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                </div>
+    <footer class="modern-footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-logo">Erkin Norsafar</div>
+            <p style="margin-bottom: 30px; opacity: 0.8;">Professional adib va dramaturg</p>
+            
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-telegram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
             </div>
-
-            <div class="footer-section">
-                <h3>Tez Havolalar</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Bosh Sahifa</a></li>
-                    <li><a href="#">Asarlar</a></li>
-                    <li><a href="#">Spektakllar</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Haqimda</a></li>
-                </ul>
-            </div>
-
-            <div class="footer-section">
-                <h3>Aloqa</h3>
-                <ul class="footer-links">
-                    <li><i class="fas fa-envelope"></i> info@erkinnorsafar.uz</li>
-                    <li><i class="fas fa-phone"></i> +998 90 123 45 67</li>
-                    <li><i class="fas fa-map-marker-alt"></i> Toshkent, O'zbekiston</li>
-                </ul>
+            
+            <div style="opacity: 0.6; font-size: 0.9em;">
+                <p>&copy; 2024 Erkin Norsafar. Barcha huquqlar himoyalangan.</p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Modal functionality
-        const modal = document.getElementById('loginModal');
-        const closeModal = document.querySelector('.close-modal');
-
-        function openModal() {
-            modal.style.display = 'flex';
-        }
-
-        closeModal.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-
-        // Search functionality
-        const searchInput = document.querySelector('.search-input');
-        searchInput.addEventListener('focus', function() {
-            this.parentElement.classList.add('focused');
-        });
-
-        searchInput.addEventListener('blur', function() {
-            this.parentElement.classList.remove('focused');
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.modern-nav');
-            if (window.scrollY > 100) {
-                nav.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Demo: Open modal on avatar click (in real site, this would be login)
-        document.querySelector('.user-avatar').addEventListener('click', openModal);
-    </script>
-</body>
-     </html>                                                    <div class="hologram-card">
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erkin Norsafar - Asarlar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Sizning mavjud stillaringizga quyidagilarni qo'shing */
-        .books-section {
-            max-width: 1000px;
-            margin: 80px auto;
-            padding: 0 20px;
-        }
-        
-        .book-card {
-            display: flex;
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            gap: 30px;
-            border-left: 5px solid #8A2BE2;
-        }
-        
-        .book-cover {
-            flex: 0 0 150px;
-        }
-        
-        .cover-placeholder {
-            width: 150px;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3em;
-        }
-        
-        .book-info {
-            flex: 1;
-        }
-        
-        .book-meta {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-        
-        .book-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .btn-primary, .btn-secondary {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-primary {
-            background: #8A2BE2;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: #7b1fa2;
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid #8A2BE2;
-            color: #8A2BE2;
-        }
-        
-        .btn-secondary:hover {
-            background: #8A2BE2;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <!-- Navigation qismi sizning mavjud kodida bo'ladi -->
-    
-    <section class="books-section">
-        <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5em;">📚 Mening Asarlarim</h2>
-        
-        <!-- 1-ASAR -->
-        <div class="book-card">
-            <div class="book-cover">
-                <div class="cover-placeholder">
-                    <i class="fas fa-book"></i>
-                </div>
-            </div>
-            <div class="book-info">
-                <h3>Kuzgi Shamollar</h3>
-                <p class="book-meta">2023 yil • Hikoyalar to'plami • 25 ta hikoya</p>
-                <p class="book-description">
-                    25 ta qisqa hikoyadan iborat badiiy to'plam. Zamonaviy hayotning 
-                    turli jihatlarini yorituvchi asar. Har bir hikoya o'quvchini 
-                    o'ziga tortadigan va fikrga soladigan mavzularni qamrab oladi.
-                </p>
-                <div class="book-actions">
-                    <button class="btn-primary" onclick="readBook('kuzgi-shamollar')">
-                        <i class="fas fa-book-open"></i> Onlayn O'qish
-                    </button>
-                    <button class="btn-secondary" onclick="downloadPDF('kuzgi-shamollar')">
-                        <i class="fas fa-download"></i> PDF Yuklab Olish
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2-ASAR -->
-        <div class="book-card">
-            <div class="book-cover">
-                <div class="cover-placeholder">
-                    <i class="fas fa-theater-masks"></i>
-                </div>
-            </div>
-            <div class="book-info">
-                <h3>O'tkir Hayot</h3>
-                <p class="book-meta">2022 yil • Drama • 3 pardali spektakl</p>
-                <p class="book-description">
-                    Sahnalashtirilgan dramatik asar. Zamonaviy jamiyatdagi 
-                    insoniy munosabatlar, sevgi va sadoqat mavzularini chuqur 
-                    o'rganadi. Tomoshabinlar tomonidan yuqori baholangan.
-                </p>
-                <div class="book-actions">
-                    <button class="btn-primary" onclick="readBook('otkir-hayot')">
-                        <i class="fas fa-book-open"></i> Onlayn O'qish
-                    </button>
-                    <button class="btn-secondary" onclick="downloadPDF('otkir-hayot')">
-                        <i class="fas fa-download"></i> PDF Yuklab Olish
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        function readBook(bookId) {
-            alert('"' + bookId + '" asari tez orada onlayn o\'qish uchun tayyor bo\'ladi!');
-            // Keyinroq to'liq funksiya qo'shamiz
-        }
-        
-        function downloadPDF(bookId) {
-            alert('"' + bookId + '" asarining PDF fayli tez orada yuklab olish uchun tayyor bo\'ladi!');
-            // Keyinroq haqiqiy yuklab olish funksiyasi
-        }
-    </script>
-</body>
-</html>                                
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erkin Norsafar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* ASARLAR BO'LIMI UCHUN STILLAR */
-        .books-section {
-            max-width: 1000px;
-            margin: 80px auto;
-            padding: 40px 20px;
-            background: #f8f9fa;
-            border-radius: 20px;
-        }
-        
-        .books-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: #333;
-        }
-        
-        .book-card {
-            display: flex;
-            background: white;
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            gap: 30px;
-            border-left: 5px solid #8A2BE2;
-        }
-        
-        .book-cover {
-            flex: 0 0 150px;
-        }
-        
-        .cover-placeholder {
-            width: 150px;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 3em;
-        }
-        
-        .book-info {
-            flex: 1;
-        }
-        
-        .book-meta {
-            color: #666;
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-        
-        .book-actions {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .book-btn {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 1em;
-        }
-        
-        .btn-primary {
-            background: #8A2BE2;
-            color: white;
-        }
-        
-        .btn-primary:hover {
-            background: #7b1fa2;
-            transform: translateY(-2px);
-        }
-        
-        .btn-secondary {
-            background: transparent;
-            border: 2px solid #8A2BE2;
-            color: #8A2BE2;
-        }
-        
-        .btn-secondary:hover {
-            background: #8A2BE2;
-            color: white;
-        }
-    </style>
-</head>
-<body>
-    <!-- NAVIGATION (sizning mavjud navigatsiyangiz) -->
-    
-    <!-- ASARLAR BO'LIMI -->
-    <section class="books-section">
-        <h2 class="books-title">📚 Mening Asarlarim</h2>
-        
-        <!-- 1-ASAR -->
-        <div class="book-card">
-            <div class="book-cover">
-                <div class="cover-placeholder">
-                    <i class="fas fa-book"></i>
-                </div>
-            </div>
-            <div class="book-info">
-                <h3 style="color: #333; margin-bottom: 10px;">Kuzgi Shamollar</h3>
-                <p class="book-meta">2023 yil • Hikoyalar to'plami • 25 ta hikoya</p>
-                <p style="color: #555; line-height: 1.6;">
-                    25 ta qisqa hikoyadan iborat badiiy to'plam. Zamonaviy hayotning 
-                    turli jihatlarini yorituvchi asar. Har bir hikoya o'quvchini 
-                    o'ziga tortadigan va fikrga soladigan mavzularni qamrab oladi.
-                </p>
-                <div class="book-actions">
-                    <button class="book-btn btn-primary" onclick="readBook('kuzgi-shamollar')">
-                        <i class="fas fa-book-open"></i> Onlayn O'qish
-                    </button>
-                    <button class="book-btn btn-secondary" onclick="downloadPDF('kuzgi-shamollar')">
-                        <i class="fas fa-download"></i> PDF Yuklab Olish
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <!-- 2-ASAR -->
-        <div class="book-card">
-            <div class="book-cover">
-                <div class="cover-placeholder">
-                    <i class="fas fa-theater-masks"></i>
-                </div>
-            </div>
-            <div class="book-info">
-                <h3 style="color: #333; margin-bottom: 10px;">O'tkir Hayot</h3>
-                <p class="book-meta">2022 yil • Drama • 3 pardali spektakl</p>
-                <p style="color: #555; line-height: 1.6;">
-                    Sahnalashtirilgan dramatik asar. Zamonaviy jamiyatdagi 
-                    insoniy munosabatlar, sevgi va sadoqat mavzularini chuqur 
-                    o'rganadi. Tomoshabinlar tomonidan yuqori baholangan.
-                </p>
-                <div class="book-actions">
-                    <button class="book-btn btn-primary" onclick="readBook('otkir-hayot')">
-                        <i class="fas fa-book-open"></i> Onlayn O'qish
-                    </button>
-                    <button class="book-btn btn-secondary" onclick="downloadPDF('otkir-hayot')">
-                        <i class="fas fa-download"></i> PDF Yuklab Olish
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER (sizning mavjud footer) -->
-
-    <script>
-        function readBook(bookId) {
-            alert('"' + bookId + '" asari tez orada onlayn o\'qish uchun tayyor bo\'ladi!');
-        }
-        
-        function downloadPDF(bookId) {
-            alert('"' + bookId + '" asarining PDF fayli tez orada yuklab olish uchun tayyor bo\'ladi!');
-        }
-    </script>
-</body>
-</html>
-<!-- ASARLAR BO'LIMI -->
-<section class="books-section">
-    <h2 class="books-title">📚 Mening Asarlarim</h2>
-    
-    <!-- KUZGI SHAMOLLAR -->
-    <div class="book-card">
-        <div class="book-cover">
-            <div class="cover-placeholder" style="background: linear-gradient(135deg, #FF6B6B, #4ECDC4);">
-                <i class="fas fa-wind"></i>
-            </div>
-        </div>
-        <div class="book-info">
-            <h3>Kuzgi Shamollar</h3>
-            <p class="book-meta">2023 yil • Hikoyalar to'plami • 25 ta hikoya</p>
-            <p class="book-description">
-                Zamonaviy hayotning turli jihatlarini aks ettiruvchi 25 ta qisqa hikoya. 
-                Har bir hikoya o'quvchini o'ziga tortadigan va hayotiy saboq beradigan mavzularni qamrab oladi.
-            </p>
-            <div class="book-actions">
-                <button class="book-btn btn-primary" onclick="showBookContent('kuzgi-shamollar')">
-                    <i class="fas fa-book-open"></i> Onlayn O'qish
-                </button>
-                <button class="book-btn btn-secondary" onclick="showChapters('kuzgi-shamollar')">
-                    <i class="fas fa-list"></i> Boblar Ro'yxati
-                </button>
-            </div>
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
 
-    <!-- O'TKIR HAYOT -->
-    <div class="book-card">
-        <div class="book-cover">
-            <div class="cover-placeholder" style="background: linear-gradient(135deg, #A8E6CF, #FFD3B6);">
-                <i class="fas fa-theater-masks"></i>
-            </div>
-        </div>
-        <div class="book-info">
-            <h3>O'tkir Hayot</h3>
-            <p class="book-meta">2022 yil • Drama • 3 pardali spektakl</p>
-            <p class="book-description">
-                Sahnalashtirilgan dramatik asar. Zamonaviy jamiyatdagi insoniy munosabatlar, 
-                sevgi va sadoqat mavzularini chuqur o'rganadi. Tomoshabinlar tomonidan yuqori baholangan.
-            </p>
-            <div class="book-actions">
-                <button class="book-btn btn-primary" onclick="showBookContent('otkir-hayot')">
-                    <i class="fas fa-book-open"></i> Onlayn O'qish
-                </button>
-                <button class="book-btn btn-secondary" onclick="showChapters('otkir-hayot')">
-                    <i class="fas fa-list"></i> Pardalar Ro'yxati
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- TUNGI FARYOD -->
-    <div class="book-card">
-        <div class="book-cover">
-            <div class="cover-placeholder" style="background: linear-gradient(135deg, #FF9A8B, #FF6B9D);">
-                <i class="fas fa-moon"></i>
-            </div>
-        </div>
-        <div class="book-info">
-            <h3>Tungi Faryod</h3>
-            <p class="book-meta">2024 yil • Roman • Yangi asar</p>
-            <p class="book-description">
-                Yangi badiiy roman. Zamonaviy insonning ichki dunyosi, orzulari va kurashlari haqida 
-                chuqur psixologik hikoya. Tez orada nashr etiladi.
-            </p>
-            <div class="book-actions">
-                <button class="book-btn btn-primary" onclick="showBookContent('tungi-faryod')">
-                    <i class="fas fa-book-open"></i> Onlayn O'qish
-                </button>
-                <button class="book-btn btn-secondary" onclick="notifyBookRelease('tungi-faryod')">
-                    <i class="fas fa-bell"></i> Chiqishidan Xabar Berish
-                </button>
-            </div>
-        </div>
-    </div>
-</section>
-// ASARLAR FUNKSIYALARI
-function showBookContent(bookId) {
-    const bookContents = {
-        'kuzgi-shamollar': `
-            <h3>Kuzgi Shamollar - 1-bob</h3>
-            <p>Kuzning dastlabki kunlari edi. Havo salqin, shamol esa daraxtlarning barglarini 
-            sekin silkitayotgandi. Men uydan chiqib, ko'chaga qadam qo'yganimda, birinchi qor 
-            yogayotganini ko'rdim...</p>
-            
-            <h4>2-bob</h4>
-            <p>Ertalab uyg'onganimda, hamma joy qor bilan qoplangan edi. Oynadan tashqariga 
-            qaradim - oq dunyo. Bu manzara menga bolalik xotiralarimni eslatdi...</p>
-        `,
-        
-        'otkir-hayot': `
-            <h3>O'tkir Hayot - 1-parda</h3>
-            <p><strong>Sahna:</strong> Kichkina kvartira. Kelet soat 8. Mehmonxona.</p>
-            <p><strong>Qahramonlar:</strong> ALI (30 yosh), ZEBU (28 yosh)</p>
-            <p><strong>ALI:</strong> (Stolga qarab) Bu nima? Yana kech qoldingmi?</p>
-            <p><strong>ZEBU:</strong> Ishda qoldim. Bilasanki, yangi loyiha...</p>
-            
-            <h4>2-parda</h4>
-            <p><strong>Sahna:</strong> Xuddi shu kvartira. Bir hafta o'tgach.</p>
-        `,
-        
-        'tungi-faryod': `
-            <h3>Tungi Faryod - Kirish</h3>
-            <p>Bu kitob hali nashr etilmagan. Tez orada butun matn bilan tanishingiz mumkin bo'ladi.</p>
-            <p>Asar zamonaviy yoshlarning orzulari, kurashlari va yutuqlari haqida...</p>
-        `
-    };
-    
-    // Modal oynani ochish
-    openModal(bookContents[bookId] || 'Asar matni topilmadi.');
-}
-
-function showChapters(bookId) {
-    const chapters = {
-        'kuzgi-shamollar': [
-            '1. Birinchi qor',
-            '2. Eski do\'st', 
-            '3. Telefon qo'ng'irog\'i',
-            '4. Kafelda',
-            '5. Tun qo\'shig\'i',
-            '6. Sayohat',
-            '7. Uchrashuv',
-            '8. Vafo',
-            '9. Orzular shahri',
-            '10. Yakun'
-        ],
-        
-        'otkir-hayot': [
-            '1-parda: Tanishuv',
-            '2-parda: Mo\'jiza', 
-            '3-parda: Tanlov',
-            '4-parda: Qaror',
-            '5-parda: Yakun'
-        ]
-    };
-    
-    const chapterList = chapters[bookId] ? 
-        chapters[bookId].map(chapter => `<li>${chapter}</li>`).join('') : 
-        '<li>Boblar ro\'yxati tayyorlanmoqda</li>';
-    
-    openModal(`<h3>Boblar Ro'yxati</h3><ul>${chapterList}</ul>`);
-}
-
-function notifyBookRelease(bookId) {
-    const email = prompt('Kitob chiqqanda xabar olish uchun email manzilingizni kiriting:');
-    if (email) {
-        alert(`Rahmat! "${bookId}" kitobi chiqqanda ${email} manziliga xabar yuboramiz.`);
-    }
-}
-
-// MODAL OYNA FUNKSIYASI
-function openModal(content) {
-    // Eski modalni o'chirish
-    const oldModal = document.getElementById('bookModal');
-    if (oldModal) oldModal.remove();
-    
-    // Yangi modal yaratish
-    const modal = document.createElement('div');
-    modal.id = 'bookModal';
-    modal.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0,0,0,0.8);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10000;
-        padding: 20px;
-    `;
-    
-    modal.innerHTML = `
-        <div style="
-            background: white; 
-            padding: 30px; 
-            border-radius: 15px; 
-            max-width: 600px; 
-            max-height: 80vh; 
-            overflow-y: auto;
-            position: relative;
-        ">
-            <button onclick="closeModal()" style="
-                position: absolute;
-                top: 15px;
-                right: 15px;
-                background: none;
-                border: none;
-                font-size: 1.5em;
-                cursor: pointer;
-            ">✕</button>
-            <div>${content}</div>
-        </div>
-    `;
-    
-    document.body.appendChild(modal);
-}
-
-function closeModal() {
-    const modal = document.getElementById('bookModal');
-    if (modal) modal.remove();
-} /* MODAL STILLARI */
-#bookModal {
-    font-family: 'Inter', sans-serif;
-}
-
-#bookModal h3 {
-    color: #8A2BE2;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #8A2BE2;
-    padding-bottom: 10px;
-}
-
-#bookModal h4 {
-    color: #666;
-    margin: 20px 0 10px 0;
-}
-
-#bookModal p {
-    line-height: 1.8;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-#bookModal ul {
-    list-style: none;
-    padding: 0;
-}
-
-#bookModal li {
-    padding: 10px 15px;
-    margin: 5px 0;
-    background: #f8f9fa;
-    border-radius: 8px;
-    border-left: 3px solid #8A2BE2;
-}
-
-/* ASARLAR STILLARI YANGILASH */
-.book-description {
-    color: #555;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.cover-placeholder i {
-    opacity: 0.9;
-}
-<!DOCTYPE html>
-<html lang="uz">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Erkin Norsafar</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Sizning barcha CSS stillaringiz bu yerda */
-        .books-section { max-width: 1000px; margin: 80px auto; padding: 40px 20px; }
-        .book-card { display: flex; background: white; border-radius: 15px; padding: 30px; margin-bottom: 30px; }
-        /* ... boshqa stillar */
-    </style>
-</head>
-<body>
-    <!-- NAVIGATION -->
-    <nav class="modern-nav">...</nav>
-
-    <!-- HERO SECTION -->
-    <section class="hero">...</section>
-
-    <!-- ASARLAR BO'LIMI -->
-    <section class="books-section">
-        <h2>📚 Mening Asarlarim</h2>
-        
-        <!-- KUZGI SHAMOLLAR -->
-        <div class="book-card">
-            <!-- asar kontenti -->
-            <button onclick="showBookContent('kuzgi-shamollar')">Onlayn O'qish</button>
-        </div>
-        
-        <!-- O'TKIR HAYOT -->
-        <div class="book-card">
-            <!-- asar kontenti -->
-            <button onclick="showBookContent('otkir-hayot')">Onlayn O'qish</button>
-        </div>
-        
-        <!-- TUNGI FARYOD -->
-        <div class="book-card">
-            <!-- asar kontenti -->
-            <button onclick="notifyBookRelease('tungi-faryod')">Chiqishidan Xabar Berish</button>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>...</footer>
-
-    <!-- ✅ ✅ ✅ JAVASCRIPT KODLARI SHU YERDA ✅ ✅ ✅ -->
     <script>
-        // ASARLAR FUNKSIYALARI
         function showBookContent(bookId) {
             const bookContents = {
-                'kuzgi-shamollar': `
-                    <h3>Kuzgi Shamollar - 1-bob</h3>
-                    <p>Kuzning dastlabki kunlari edi. Havo salqin, shamol esa daraxtlarning barglarini 
-                    sekin silkitayotgandi. Men uydan chiqib, ko'chaga qadam qo'yganimda, birinchi qor 
-                    yogayotganini ko'rdim...</p>
-                `,
-                'otkir-hayot': `
-                    <h3>O'tkir Hayot - 1-parda</h3>
-                    <p><strong>Sahna:</strong> Kichkina kvartira. Kelet soat 8. Mehmonxona.</p>
-                    <p><strong>ALI:</strong> (Stolga qarab) Bu nima? Yana kech qoldingmi?</p>
-                `
+                'kuzgi-shamollar': '<h3>Kuzgi Shamollar - 1-bob</h3><p>Kuzning dastlabki kunlari edi. Havo salqin, shamol esa daraxtlarning barglarini sekin silkitayotgandi. Men uydan chiqib, ko\'chaga qadam qo\'yganimda, birinchi qor yogayotganini ko\'rdim...</p>',
+                'otkir-hayot': '<h3>O\'tkir Hayot - 1-parda</h3><p><strong>Sahna:</strong> Kichkina kvartira. Kelet soat 8. Mehmonxona.</p><p><strong>ALI:</strong> (Stolga qarab) Bu nima? Yana kech qoldingmi?</p>',
+                'tungi-faryod': '<h3>Tungi Faryod - Kirish</h3><p>Bu kitob hali nashr etilmagan. Tez orada butun matn bilan tanishingiz mumkin bo\'ladi.</p>'
             };
-            openModal(bookContents[bookId] || 'Asar matni topilmadi.');
+            
+            document.getElementById('modalBody').innerHTML = bookContents[bookId] || '<p>Asar matni topilmadi.</p>';
+            document.getElementById('bookModal').style.display = 'flex';
         }
 
         function showChapters(bookId) {
@@ -1311,46 +605,32 @@ function closeModal() {
                 'kuzgi-shamollar': ['1. Birinchi qor', '2. Eski do\'st', '3. Telefon qo\'ng\'irog\'i'],
                 'otkir-hayot': ['1-parda: Tanishuv', '2-parda: Mo\'jiza', '3-parda: Tanlov']
             };
+            
             const chapterList = chapters[bookId] ? 
-                chapters[bookId].map(chapter => `<li>${chapter}</li>`).join('') : 
+                chapters[bookId].map(chapter => '<li>' + chapter + '</li>').join('') : 
                 '<li>Boblar ro\'yxati tayyorlanmoqda</li>';
-            openModal(`<h3>Boblar Ro'yxati</h3><ul>${chapterList}</ul>`);
+            
+            document.getElementById('modalBody').innerHTML = '<h3>Boblar Ro\'yxati</h3><ul>' + chapterList + '</ul>';
+            document.getElementById('bookModal').style.display = 'flex';
         }
 
         function notifyBookRelease(bookId) {
             const email = prompt('Kitob chiqqanda xabar olish uchun email manzilingizni kiriting:');
             if (email) {
-                alert(`Rahmat! "${bookId}" kitobi chiqqanda ${email} manziliga xabar yuboramiz.`);
+                alert('Rahmat! "' + bookId + '" kitobi chiqqanda ' + email + ' manziliga xabar yuboramiz.');
             }
         }
 
-        // MODAL OYNA FUNKSIYASI
-        function openModal(content) {
-            const oldModal = document.getElementById('bookModal');
-            if (oldModal) oldModal.remove();
-            
-            const modal = document.createElement('div');
-            modal.id = 'bookModal';
-            modal.style.cssText = `
-                position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
-                background: rgba(0,0,0,0.8); display: flex; align-items: center; 
-                justify-content: center; z-index: 10000; padding: 20px;
-            `;
-            
-            modal.innerHTML = `
-                <div style="background: white; padding: 30px; border-radius: 15px; max-width: 600px; max-height: 80vh; overflow-y: auto; position: relative;">
-                    <button onclick="closeModal()" style="position: absolute; top: 15px; right: 15px; background: none; border: none; font-size: 1.5em; cursor: pointer;">✕</button>
-                    <div>${content}</div>
-                </div>
-            `;
-            
-            document.body.appendChild(modal);
+        function closeModal() {
+            document.getElementById('bookModal').style.display = 'none';
         }
 
-        function closeModal() {
+        window.addEventListener('click', function(event) {
             const modal = document.getElementById('bookModal');
-            if (modal) modal.remove();
-        }
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
     </script>
 </body>
-</html>
+ </html>    
