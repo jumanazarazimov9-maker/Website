@@ -656,4 +656,163 @@
     </script>
 </body>
      </html>                                                    <div class="hologram-card">
-                                
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erkin Norsafar - Asarlar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Sizning mavjud stillaringizga quyidagilarni qo'shing */
+        .books-section {
+            max-width: 1000px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        
+        .book-card {
+            display: flex;
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            gap: 30px;
+            border-left: 5px solid #8A2BE2;
+        }
+        
+        .book-cover {
+            flex: 0 0 150px;
+        }
+        
+        .cover-placeholder {
+            width: 150px;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3em;
+        }
+        
+        .book-info {
+            flex: 1;
+        }
+        
+        .book-meta {
+            color: #666;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        
+        .book-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #8A2BE2;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #7b1fa2;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #8A2BE2;
+            color: #8A2BE2;
+        }
+        
+        .btn-secondary:hover {
+            background: #8A2BE2;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation qismi sizning mavjud kodida bo'ladi -->
+    
+    <section class="books-section">
+        <h2 style="text-align: center; margin-bottom: 50px; font-size: 2.5em;">📚 Mening Asarlarim</h2>
+        
+        <!-- 1-ASAR -->
+        <div class="book-card">
+            <div class="book-cover">
+                <div class="cover-placeholder">
+                    <i class="fas fa-book"></i>
+                </div>
+            </div>
+            <div class="book-info">
+                <h3>Kuzgi Shamollar</h3>
+                <p class="book-meta">2023 yil • Hikoyalar to'plami • 25 ta hikoya</p>
+                <p class="book-description">
+                    25 ta qisqa hikoyadan iborat badiiy to'plam. Zamonaviy hayotning 
+                    turli jihatlarini yorituvchi asar. Har bir hikoya o'quvchini 
+                    o'ziga tortadigan va fikrga soladigan mavzularni qamrab oladi.
+                </p>
+                <div class="book-actions">
+                    <button class="btn-primary" onclick="readBook('kuzgi-shamollar')">
+                        <i class="fas fa-book-open"></i> Onlayn O'qish
+                    </button>
+                    <button class="btn-secondary" onclick="downloadPDF('kuzgi-shamollar')">
+                        <i class="fas fa-download"></i> PDF Yuklab Olish
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2-ASAR -->
+        <div class="book-card">
+            <div class="book-cover">
+                <div class="cover-placeholder">
+                    <i class="fas fa-theater-masks"></i>
+                </div>
+            </div>
+            <div class="book-info">
+                <h3>O'tkir Hayot</h3>
+                <p class="book-meta">2022 yil • Drama • 3 pardali spektakl</p>
+                <p class="book-description">
+                    Sahnalashtirilgan dramatik asar. Zamonaviy jamiyatdagi 
+                    insoniy munosabatlar, sevgi va sadoqat mavzularini chuqur 
+                    o'rganadi. Tomoshabinlar tomonidan yuqori baholangan.
+                </p>
+                <div class="book-actions">
+                    <button class="btn-primary" onclick="readBook('otkir-hayot')">
+                        <i class="fas fa-book-open"></i> Onlayn O'qish
+                    </button>
+                    <button class="btn-secondary" onclick="downloadPDF('otkir-hayot')">
+                        <i class="fas fa-download"></i> PDF Yuklab Olish
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function readBook(bookId) {
+            alert('"' + bookId + '" asari tez orada onlayn o\'qish uchun tayyor bo\'ladi!');
+            // Keyinroq to'liq funksiya qo'shamiz
+        }
+        
+        function downloadPDF(bookId) {
+            alert('"' + bookId + '" asarining PDF fayli tez orada yuklab olish uchun tayyor bo\'ladi!');
+            // Keyinroq haqiqiy yuklab olish funksiyasi
+        }
+    </script>
+</body>
+</html>                                
