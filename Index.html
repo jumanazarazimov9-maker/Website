@@ -1,139 +1,421 @@
-<!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="uz">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat Questioner - AI Yordamchi</title>
-    <meta name="description" content="Bepul AI yordamchi - Chat Questioner. Kitoblar, hikoyalar, rasmlar va ko'p narsalar">
     <style>
-        /* STYLES */
-        body {
+        /* === MOBILE FIRST DESIGN === */
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
         }
-        
+
         .container {
             text-align: center;
             color: white;
-            padding: 40px;
+            width: 100%;
+            max-width: 500px;
+            padding: 30px 20px;
         }
-        
+
         h1 {
-            font-size: 3em;
+            font-size: 2.5rem;
             margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
-        
-        p {
-            font-size: 1.2em;
+
+        .subtitle {
+            font-size: 1.2rem;
             margin-bottom: 30px;
+            line-height: 1.5;
+            opacity: 0.9;
         }
-        
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .feature {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
         .btn {
             background: white;
             color: #667eea;
-            padding: 15px 30px;
+            padding: 15px 40px;
             border: none;
-            border-radius: 25px;
-            font-size: 1.1em;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
             cursor: pointer;
             text-decoration: none;
             display: inline-block;
-            transition: transform 0.3s ease;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            margin: 10px;
         }
 
-        /* CHAT STYLES */
-        #chat-questioner {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 400px;
-            height: 500px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            z-index: 10000;
-            display: none;
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
         }
-        
+
+        .url-display {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        /* === CHAT WIDGET === */
         #chat-toggle {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 70px;
-            height: 70px;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
             background: white;
             border: none;
             border-radius: 50%;
             color: #667eea;
-            font-size: 28px;
+            font-size: 24px;
             cursor: pointer;
             z-index: 9999;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        #chat-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        #chat-questioner {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: calc(100vw - 40px);
+            max-width: 400px;
+            height: 500px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            z-index: 10000;
+            display: none;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .chat-messages {
+            height: 320px;
+            overflow-y: auto;
+            padding: 15px;
+            background: #f8f9fa;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            margin: 8px 0;
+            border-radius: 18px;
+            line-height: 1.4;
+        }
+
+        .user-message {
+            background: #667eea;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .ai-message {
+            background: white;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 5px;
+        }
+
+        .chat-input {
+            padding: 15px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            gap: 10px;
+        }
+
+        .message-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            outline: none;
+        }
+
+        .send-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* === RESPONSIVE DESIGN === */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .subtitle {
+                font-size: 1rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+            
+            #chat-questioner {
+                width: calc(100vw - 30px);
+                right: 15px;
+                bottom: 80px;
+            }
+        }
+
+        @media (max-width: 320px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .container {
+                padding: 20px 15px;
+            }
+        }
+
+        /* === LANDSCAPE MODE === */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .container {
+                padding: 10px 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+            
+            #chat-questioner {
+                height: 300px;
+            }
+            
+            .chat-messages {
+                height: 180px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- ASOSIY KONTENT -->
     <div class="container">
         <h1>🤖 Chat Questioner</h1>
-        <p>Dunyo kitoblarini biladigan AI yordamchi</p>
-        <button class="btn" onclick="openChat()">Chatni Ochish</button>
-        <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">
-            erkin.netlify.app/1
+        <p class="subtitle">
+            Dunyo kitoblarini biladigan, hikoya tahlil qiladigan<br>
+            va fotorealistik rasmlar yarata olgan AI yordamchi
         </p>
+
+        <div class="features">
+            <div class="feature">
+                <strong>💬 Suhbat</strong>
+                <div style="font-size: 0.9rem; margin-top: 5px;">Barcha tillarda</div>
+            </div>
+            <div class="feature">
+                <strong>📚 Kitoblar</strong>
+                <div style="font-size: 0.9rem; margin-top: 5px;">10,000+ kitob</div>
+            </div>
+            <div class="feature">
+                <strong>📖 Hikoyalar</strong>
+                <div style="font-size: 0.9rem; margin-top: 5px;">Yaratish va tahlil</div>
+            </div>
+            <div class="feature">
+                <strong>🎨 Rasmlar</strong>
+                <div style="font-size: 0.9rem; margin-top: 5px;">Fotorealistik</div>
+            </div>
+        </div>
+
+        <button class="btn" onclick="openChat()">
+            Chatni Boshlash
+        </button>
+
+        <div class="url-display">
+            🌐 erkin.netlify.app/1
+        </div>
     </div>
 
-    <!-- Chat Widget -->
+    <!-- CHAT WIDGET -->
     <button id="chat-toggle" onclick="toggleChat()">🤖</button>
     
     <div id="chat-questioner">
-        <div style="background: #667eea; color: white; padding: 20px; border-radius: 15px 15px 0 0;">
+        <div class="chat-header">
             <h3 style="margin: 0;">Chat Questioner</h3>
+            <div style="font-size: 0.9rem; opacity: 0.9;">Online - AI Yordamchi</div>
         </div>
-        <div style="height: 400px; padding: 20px; overflow-y: auto;">
-            <div style="background: #f1f1f1; padding: 10px; border-radius: 10px; margin-bottom: 10px;">
-                Salom! Men Chat Questioner. Qanday yordam bera olaman? 🤖
+        
+        <div class="chat-messages" id="messages-container">
+            <div class="message ai-message">
+                🤖 Salom! Men Chat Questioner.<br><br>
+                Savolingizni bering yoki quyidagi funksiyalardan foydalaning:<br>
+                • 💬 Suhbat<br>
+                • 📚 Kitoblar<br>
+                • 📖 Hikoyalar<br>
+                • 🎨 Rasmlar
             </div>
         </div>
-        <div style="padding: 20px; border-top: 1px solid #eee; display: flex; gap: 10px;">
+        
+        <div class="chat-input">
             <input type="text" 
-                   placeholder="Xabar yozing..." 
-                   style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px;">
-            <button style="background: #667eea; color: white; border: none; border-radius: 20px; padding: 10px 20px; cursor: pointer;">
-                ➤
-            </button>
+                   class="message-input" 
+                   id="message-input"
+                   placeholder="Xabar yozing..."
+                   onkeypress="handleKeypress(event)">
+            <button class="send-btn" onclick="sendMessage()">➤</button>
         </div>
     </div>
 
     <script>
+        // === CHAT FUNCTIONS ===
         let chatOpen = false;
+        let isProcessing = false;
         
         function openChat() {
-            toggleChat();
+            if (!chatOpen) {
+                toggleChat();
+            }
         }
         
         function toggleChat() {
             const chat = document.getElementById('chat-questioner');
+            const toggleBtn = document.getElementById('chat-toggle');
+            
             chatOpen = !chatOpen;
             
             if (chatOpen) {
                 chat.style.display = 'block';
+                toggleBtn.textContent = '✕';
+                toggleBtn.style.background = '#ff4757';
+                
+                // Inputga fokus
+                setTimeout(() => {
+                    const input = document.getElementById('message-input');
+                    if (input) input.focus();
+                }, 300);
             } else {
                 chat.style.display = 'none';
+                toggleBtn.textContent = '🤖';
+                toggleBtn.style.background = 'white';
             }
         }
         
-        // Netlify analytics
-        console.log('🚀 Chat Questioner Netlify da ishga tushdi!');
-        console.log('🌐 Domain: erkin.netlify.app/1');
+        function handleKeypress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        function sendMessage() {
+            if (isProcessing) return;
+            
+            const input = document.getElementById('message-input');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            isProcessing = true;
+            
+            // User xabarini qo'shish
+            addMessage('user', message);
+            input.value = '';
+            
+            // AI javobi
+            setTimeout(() => {
+                const response = generateAIResponse(message);
+                addMessage('ai', response);
+                isProcessing = false;
+            }, 1000);
+        }
+        
+        function addMessage(sender, text) {
+            const messagesContainer = document.getElementById('messages-container');
+            if (!messagesContainer) return;
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            messageDiv.textContent = text;
+            
+            messagesContainer.appendChild(messageDiv);
+            
+            // Scroll pastga
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+        
+        function generateAIResponse(userMessage) {
+            const lowerMessage = userMessage.toLowerCase();
+            
+            if (lowerMessage.includes('salom') || lowerMessage.includes('hello')) {
+                return "Assalomu alaykum! 🤖\n\nQanday yordam bera olaman? Savolingizni bering!";
+            }
+            
+            if (lowerMessage.includes('kitob') || lowerMessage.includes('book')) {
+                return "📚 Men turli kitoblar haqida ma'lumot bera olaman!\n\nQaysi kitob haqida bilmoqchisiz?";
+            }
+            
+            if (lowerMessage.includes('rasm') || lowerMessage.includes('image')) {
+                return "🎨 Rasm yaratishim mumkin!\n\nQanday rasm kerak? Tavsif bering!";
+            }
+            
+            return `Sizning savolingiz: "${userMessage}"\n\nBu haqda qiziqarli fikr! Men sizga yordam bera olaman.`;
+        }
+        
+        // Sayt yuklanganda
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🚀 Chat Questioner Netlify da ishga tushdi!');
+            console.log('📱 Responsive design faollashtirildi');
+        });
     </script>
 </body>
-</html>     
+    </html>     
