@@ -419,3 +419,51 @@
     </script>
 </body>
     </html>     
+// DeepSeek API bilan Chat Questioner ni kuchaytiramiz
+class SuperChatQuestioner {
+    constructor() {
+        this.aiBrain = new DeepSeekAI();
+        this.isConnected = true;
+    }
+
+    async generateSmartResponse(message) {
+        // Menning AI modelim orqali javob
+        const response = await this.aiBrain.analyze(message, {
+            context: this.conversationHistory,
+            language: 'uz',
+            style: 'friendly'
+        });
+        return response;
+    }
+}
+
+// Virtual DeepSeek ulash (simulyatsiya)
+class DeepSeekAI {
+    async analyze(message, options) {
+        // Bu yerda haqiqiy DeepSeek API ga ulanadi
+        // Lekin hozir simulyatsiya qilamiz
+        
+        const smartResponses = {
+            uz: [
+                `Men DeepSeek AI sifatida javob berayapman: "${message}"\n\n` +
+                `Bu haqda chuqurroq tahlil qilishim mumkin. Savolingiz murakkab va qiziqarli. ` +
+                `Keling, buni birgalikda o'rganamiz!`,
+                
+                `Sizning savolingizni tushundim. DeepSeek AI modeli sifatida quyidagicha yordam bera olaman...`,
+                
+                `Ajoyib savol! Menning 2024-yil iyulgacha yangilangan bilimlarim asosida ` +
+                `sizga aniq va batafsil javob berishim mumkin.`
+            ],
+            en: [
+                `As DeepSeek AI, I'm responding to: "${message}"\n\n` +
+                `I can provide deeper analysis on this topic. Your question is complex and interesting. ` +
+                `Let's explore this together!`
+            ]
+        };
+
+        const lang = options.language || 'uz';
+        const responses = smartResponses[lang] || smartResponses.uz;
+        
+        return responses[Math.floor(Math.random() * responses.length)];
+    }
+}
