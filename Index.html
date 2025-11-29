@@ -5,205 +5,318 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Erkin Norsafar - Yozuvchi va Dramaturg</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Georgia&family=Arial&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
-            font-family: 'Georgia', serif;
-            background: #0a0a0f;
-            color: #00ffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
             line-height: 1.6;
         }
 
-        /* NAVIGATSIYA */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(10, 10, 15, 0.95);
-            border-bottom: 1px solid #00ffff;
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
         }
 
-        .logo {
-            font-family: 'Arial', sans-serif;
-            font-size: 1.3rem;
-            font-weight: bold;
-            color: #00ffff;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-link {
-            color: #00ffff;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-        }
-
-        .nav-link:hover {
-            color: #ff00ff;
-        }
-
-        /* ASOSIY QISMI */
-        section {
-            padding: 6rem 5%;
-            min-height: 100vh;
-        }
-
-        .hero {
+        /* HEADER */
+        header {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
             text-align: center;
-            padding-top: 80px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .hero-title {
-            font-size: 3rem;
-            color: #00ffff;
-            margin-bottom: 1rem;
-            font-weight: bold;
+        header h1 {
+            color: #2c3e50;
+            font-size: 3em;
+            margin-bottom: 10px;
         }
 
-        .hero-subtitle {
-            font-size: 1.5rem;
-            color: #ff00ff;
-            margin-bottom: 2rem;
+        header p {
+            color: #7f8c8d;
+            font-size: 1.2em;
         }
 
-        .cta-buttons {
+        /* NAVIGATION */
+        nav {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .nav-links {
             display: flex;
-            gap: 1rem;
             justify-content: center;
+            gap: 30px;
             flex-wrap: wrap;
         }
 
-        .btn {
-            padding: 1rem 2rem;
-            font-size: 1rem;
+        .nav-links a {
             text-decoration: none;
-            border: 2px solid #00ffff;
-            color: #00ffff;
-            transition: all 0.3s;
+            color: #3498db;
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 10px 20px;
+            border-radius: 25px;
+            transition: all 0.3s ease;
         }
 
-        .btn:hover {
-            background: #00ffff;
-            color: #0a0a0f;
+        .nav-links a:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-2px);
         }
 
-        /* BO'LIMLAR */
-        .section-title {
-            font-size: 2.5rem;
+        /* SECTIONS */
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2em;
+            border-left: 5px solid #3498db;
+            padding-left: 15px;
+        }
+
+        /* BLOG POSTS */
+        .blog-post {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+
+        .blog-post h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        /* FORM */
+        .contact-form {
+            display: grid;
+            gap: 15px;
+            max-width: 600px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1em;
+            transition: border-color 0.3s ease;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .contact-form button {
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .contact-form button:hover {
+            background: #2980b9;
+        }
+
+        /* GALLERY */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
             text-align: center;
-            margin-bottom: 3rem;
-            color: #00ffff;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #7f8c8d;
         }
 
-        .card {
-            background: rgba(0, 255, 255, 0.05);
-            border: 1px solid #00ffff;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 5px;
+        /* FOOTER */
+        footer {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            margin-top: 30px;
         }
 
-        .card-title {
-            font-size: 1.3rem;
-            color: #00ffff;
-            margin-bottom: 1rem;
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
-        .card-text {
-            color: #cccccc;
-            line-height: 1.8;
+        .social-links a {
+            text-decoration: none;
+            color: #3498db;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #3498db;
+            border-radius: 25px;
+            transition: all 0.3s ease;
         }
 
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .nav-menu {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .hero-title {
-                font-size: 2rem;
-            }
+        .social-links a:hover {
+            background: #3498db;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <!-- NAVIGATSIYA -->
-    <nav class="navbar">
-        <div class="logo">Erkin Norsafar</div>
-        <ul class="nav-menu">
-            <li><a href="#home" class="nav-link">BOSH SAHIFA</a></li>
-            <li><a href="#stories" class="nav-link">HIKOYALAR</a></li>
-            <li><a href="#plays" class="nav-link">SPEKTAKLLAR</a></li>
-            <li><a href="#interviews" class="nav-link">INTERVYULAR</a></li>
-            <li><a href="#contact" class="nav-link">ALOQA</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        <!-- HEADER -->
+        <header>
+            <h1>Erkin Norsafar</h1>
+            <p>Badiiy Hikoyalar va Spektakllar Muallifi</p>
+        </header>
 
-    <!-- ASOSIY QISMI -->
-    <section class="hero" id="home">
-        <h1 class="hero-title">ERKIN NORSAFAR</h1>
-        <p class="hero-subtitle">Yozuvchi va Dramaturg</p>
-        <div class="cta-buttons">
-            <a href="#stories" class="btn">HIKOYALAR</a>
-            <a href="#contact" class="btn">BOG'LANISH</a>
-        </div>
-    </section>
+        <!-- NAVIGATION -->
+        <nav>
+            <div class="nav-links">
+                <a href="#home">BOSH SAHIFA</a>
+                <a href="#stories">HIKOYALAR</a>
+                <a href="#plays">SPEKTAKLLAR</a>
+                <a href="#interviews">INTERVYULAR</a>
+                <a href="#blog">BLOG</a>
+                <a href="#gallery">GALEREYA</a>
+                <a href="#contact">ALOQA</a>
+            </div>
+        </nav>
 
-    <!-- HIKOYALAR -->
-    <section id="stories">
-        <h2 class="section-title">HIKOYALAR</h2>
-        <div class="card">
-            <h3 class="card-title">Birinchi Hikoya</h3>
-            <p class="card-text">Bu yerda sizning hikoyangizning to'liq matni joylashadi.</p>
-        </div>
-        <div class="card">
-            <h3 class="card-title">Ikkinchi Hikoya</h3>
-            <p class="card-text">Ikkinchi hikoyangizning matni bu yerda joylashadi.</p>
-        </div>
-    </section>
+        <!-- BOSH SAHIFA -->
+        <section id="home" class="section">
+            <h2>🎭 Xush Kelibsiz!</h2>
+            <p>Erkin Norsafar - zamonaviy o'zbek adabiyotining yorqin vakili. Badiiy hikoyalar va sahna asarlari muallifi.</p>
+        </section>
 
-    <!-- SPEKTAKLLAR -->
-    <section id="plays">
-        <h2 class="section-title">SPEKTAKLLAR</h2>
-        <div class="card">
-            <h3 class="card-title">Spektakl Nomi</h3>
-            <p class="card-text">Spektakl haqida qisqacha ma'lumot.</p>
-        </div>
-    </section>
+        <!-- HIKOYALAR -->
+        <section id="stories" class="section">
+            <h2>📖 Badiiy Hikoyalar</h2>
+            <div class="blog-post">
+                <h3>"Kuzgi Shamollar"</h3>
+                <p>Yangi badiiy hikoyam o'quvchilar bilan baham ko'rish uchun tayyorlanmoqda...</p>
+                <span class="date">Yanvar 2024</span>
+            </div>
+            <div class="blog-post">
+                <h3>"Tungi Faryod"</h3>
+                <p>Jarayondagi yangi hikoya loyihasi...</p>
+                <span class="date">Dekabr 2023</span>
+            </div>
+        </section>
 
-    <!-- INTERVYULAR -->
-    <section id="interviews">
-        <h2 class="section-title">INTERVYULAR</h2>
-        <div class="card">
-            <h3 class="card-title">Intervyu Sarlavhasi</h3>
-            <p class="card-text">Intervyu haqida qisqacha ma'lumot.</p>
-        </div>
-    </section>
+        <!-- SPEKTAKLLAR -->
+        <section id="plays" class="section">
+            <h2>🎭 Spektakllar</h2>
+            <div class="blog-post">
+                <h3>"O'tkir Hayot"</h3>
+                <p>2023 yilda sahnalashtirilgan dramatik asar</p>
+                <span class="date">Mart 2023</span>
+            </div>
+        </section>
 
-    <!-- ALOQA -->
-    <section id="contact">
-        <h2 class="section-title">ALOQA</h2>
-        <div class="card">
-            <h3 class="card-title">Bog'lanish</h3>
-            <p class="card-text">Email: mahmadalie49@gmail.com<br>Telegram: @erkin_norsafar</p>
-        </div>
-    </section>
+        <!-- BLOG -->
+        <section id="blog" class="section">
+            <h2>📝 Blog & Maqolalar</h2>
+            <div class="blog-post">
+                <h3>Zamonaviy Adabiyot Tendensiyalari</h3>
+                <p>Zamonaviy o'zbek adabiyotidagi yangi yo'nalishlar haqida fikrlar...</p>
+                <span class="date">Yanvar 2024</span>
+            </div>
+        </section>
+
+        <!-- GALEREYA -->
+        <section id="gallery" class="section">
+            <h2>📸 Galereya</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">Spektakl Fotolari</div>
+                <div class="gallery-item">Kitob Muqovalari</div>
+                <div class="gallery-item">Ijodiy Kecha</div>
+                <div class="gallery-item">Imzoulash Marosimi</div>
+            </div>
+        </section>
+
+        <!-- ALOQA -->
+        <section id="contact" class="section">
+            <h2>✉️ Bog'lanish</h2>
+            <form class="contact-form">
+                <input type="text" placeholder="Ismingiz" required>
+                <input type="email" placeholder="Email manzilingiz" required>
+                <input type="text" placeholder="Mavzu" required>
+                <textarea placeholder="Xabaringiz..." rows="5" required></textarea>
+                <button type="submit">Xabarni Yuborish</button>
+            </form>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="social-links">
+                <a href="#">📘 Facebook</a>
+                <a href="#">📷 Instagram</a>
+                <a href="#">🐦 Twitter</a>
+                <a href="#">💼 Telegram</a>
+            </div>
+            <p>© 2024 Erkin Norsafar. Barcha huquqlar himoyalangan.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Smooth scroll navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Form yuborish
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Rahmat! Xabaringiz qabul qilindi. Tez orada aloqaga chiqamiz.');
+            this.reset();
+        });
+    </script>
 </body>
-    </html>
+</html>
